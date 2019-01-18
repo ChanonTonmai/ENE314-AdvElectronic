@@ -43,17 +43,17 @@ architecture Behavioral of tb_uart is
    
   signal r_CLOCK     : std_logic                    := '0';
   signal r_TX_DV     : std_logic                    := '0';
-  signal r_TX_BYTE   : std_logic_vector(24 downto 0) := (others => '0');
+  signal r_TX_BYTE   : std_logic_vector(7 downto 0) := (others => '0');
   signal w_TX_SERIAL : std_logic;
   signal w_TX_DONE   : std_logic;
   signal w_RX_DV     : std_logic;
-  signal w_RX_BYTE   : std_logic_vector(24 downto 0);
+  signal w_RX_BYTE   : std_logic_vector(7 downto 0);
   signal r_RX_SERIAL : std_logic := '1';
  
    
   -- Low-level byte-write
   procedure UART_WRITE_BYTE (
-    i_data_in       : in  std_logic_vector(24 downto 0);
+    i_data_in       : in  std_logic_vector(7 downto 0);
     signal o_serial : out std_logic) is
   begin
  
@@ -62,7 +62,7 @@ architecture Behavioral of tb_uart is
     wait for c_BIT_PERIOD;
  
     -- Send Data Byte
-    for ii in 0 to 24 loop
+    for ii in 0 to 7 loop
       o_serial <= i_data_in(ii);
       wait for c_BIT_PERIOD;
     end loop;  -- ii
@@ -110,7 +110,7 @@ begin
     wait until rising_edge(r_CLOCK);
     wait until rising_edge(r_CLOCK);
     r_TX_DV   <= '1';
-    r_TX_BYTE <= '0'& X"0000AB";
+    r_TX_BYTE <= X"AB";
     wait until rising_edge(r_CLOCK);
     r_TX_DV   <= '0';
     wait until w_TX_DONE = '1';
@@ -125,7 +125,7 @@ begin
  
     wait for 100 ms;
     -- Check that the correct command was received
-    if w_RX_BYTE = '0'& X"0000AB" then
+    if w_RX_BYTE = X"AB" then
       report "Test Passed - Correct Byte Received" severity note;
     else
       report "Test Failed - Incorrect Byte Received" severity note;
