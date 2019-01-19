@@ -12,7 +12,7 @@ entity send_data is
 end send_data;
 
 architecture Behavioral of send_data is
-    constant M : integer := 15;
+    constant M : integer := 13;
     ------------------------------------------------------------------------------
     --------------------- Create Your Own Variable Area --------------------------
     ------------------------------------------------------------------------------ 
