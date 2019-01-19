@@ -8,3 +8,6 @@ In the UART block, when it finish send one package of data, there are signal cal
 
 ## Lab 1 Exercise: Push Button to send "Hello World"
 You need to use the prior code from Exercise folder and write your own code to send "Hello World". You need to take the advantage of tx_done signal which will tell you to send the next character. Notice that, the tx_done signal has 2 clk period but you need only 1 clk period. Therefore, the edge detection curcuit will help ypu for this. 
+
+The result from this exercise is shown below. 
+![blank diagram 7](https://user-images.githubusercontent.com/9088660/51425575-6b7e3b00-1c10-11e9-9b06-2f2db6bd6379.png)
