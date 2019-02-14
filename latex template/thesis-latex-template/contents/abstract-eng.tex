@@ -1,0 +1,13 @@
+\abstract
+
+This research study proposes a method to determine whether a stamp on imported liquor is genuine or not. The proposed method uses a standard Hough transform to crop the Bird Of Paradise, which is the most important part of the stamp, and uses the width and height of the histogram of the cut Bird-Of-Paradise image to determine the genuineness of the stamp. The proposed method outperforms a traditional method, which uses well-trained persons to classify the stamps. In the process of cropping the Bird Of Paradise, the stamp RGB image taken by a digital camera is first converted into a grey-scale image before being converted into a binary image, which in turn is used to find an edge image using the canny technique. Then, knowing the range of radius of the circle around the Bird-Of-Paradise part, the standard Hough transform is applied to extract the circle, which in turn is used to crop the Bird-Of-Paradise part. Then, the width and height of the histogram of the cropped Bird-Of-Paradise part are found to form a coordinate, which is compared with the threshold line to decide whether the Bird Of Paradise is of the genuine stamp or not. The proposed method is tested with 40 stamps, of which 20 stamps are genuine. The results showed that the proposed method can correctly classify all of the samples.
+
+%----- old version before abstract checking -----
+%In chest x-ray process, normally, the x-ray operator needs to move the x-ray detector to its proper position. This Research Project Study  presents an image processing based system for automatically moving an x-ray detector in the chest x-ray process so that the detector is in the proper position before taking an x-ray. The proposed system can help reduce operating time of the x-ray process using the general-purpose x-ray machine. Based on sequence of images from a camera looking at the back of a patient, the position of detector is computed from (1) finding shirt area using the color detection, (2) finding the patient’s head, and (3) calculating chest box based on the golden ratio of a human body.  The experiments were carried out using the Wall Stand Detector Chest Posteroanterior with 12 persons. The finding of chest box is perfect for the given dataset error of the position comparing with the human while the average adjusting time is about 19 seconds per person.
+
+
+\begin{flushleft}
+\begin{tabular*}{\textwidth}{@{}lp{0.8\textwidth}}
+Keywords: & Circle Hough Transform /Histogram/Tax stamp
+\end{tabular*}
+\end{flushleft}

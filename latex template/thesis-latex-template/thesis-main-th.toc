@@ -1,0 +1,33 @@
+\select@language {thai}
+\contentsline {chapterx}{\mdseries สารบัญ}{i}
+\contentsline {chapterxx}{\mdseries \bf บทที่}{1}
+\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \bf {\numberline {1.}\hskip -0.5em บทนำ}}{1}
+\contentsline {section}{\numberline {1.1}ความสำคัญและที่มาของโครงงานศึกษาวิจัย }{1}
+\contentsline {section}{\numberline {1.2}วัตถุประสงค์ของโครงงานศึกษาวิจัย}{2}
+\contentsline {section}{\numberline {1.3}ขอบเขตของโครงงานศึกษาวิจัย}{2}
+\contentsline {section}{\numberline {1.4}ประโยชน์จากโครงงานศึกษาวิจัย}{3}
+\contentsline {section}{\numberline {1.5}ระเบียบวิธีการดำเนินวิจัย}{3}
+\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \bf {\numberline {2.}\hskip -0.5em ทฤษฎีที่เกี่ยวข้อง}}{4}
+\contentsline {section}{\numberline {2.1}การแทนภาพดิจิทัลและการแปลงภาพ}{4}
+\contentsline {subsection}{\numberline {2.1.1}การบอกข้อมูลแสงของภาพสีด้วยระบบสีอาร์จีบี}{4}
+\contentsline {subsection}{\numberline {2.1.2}ภาพระดับสีเทา}{4}
+\contentsline {subsection}{\numberline {2.1.3}ภาพขาวดำ (Binary Image) และการแปลงภาพระดับสีเทาเป็นภาพขาวดำ}{5}
+\contentsline {section}{\numberline {2.2}การหาขอบของวัตถุ (Edge Detection)}{6}
+\contentsline {section}{\numberline {2.3}การแปลงฮัฟวงกลม (Circle Hough Transform)}{8}
+\contentsline {section}{\numberline {2.4}ฮิสโตแกรมของภาพ (Image Histogram)}{10}
+\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \bf {\numberline {3.}\hskip -0.5em วิธีการตรวจสอบตราของแสตมป์ที่นำเสนอ}}{11}
+\contentsline {section}{\numberline {3.1}โครงสร้างระบบเพื่อใช้ในการถ่ายภาพของแสตมป์}{11}
+\contentsline {section}{\numberline {3.2}แนวคิดของวิธีการตรวจสอบที่นำเสนอ}{11}
+\contentsline {section}{\numberline {3.3}วิธีการตัดเอาเฉพาะภาพตรานกวายุภักษ์}{15}
+\contentsline {section}{\numberline {3.4}วิธีการแยกแยะตรานกวายุภักษ์}{17}
+\contentsline {section}{\numberline {3.5}การเรียนรู้เพื่อหาเส้นแบ่งการคัดแยก}{21}
+\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \bf {\numberline {4.}\hskip -0.5em การทดสอบและการวิจารณ์}}{23}
+\contentsline {section}{\numberline {4.1}การเตรียมการในการทดสอบ}{23}
+\contentsline {subsection}{\numberline {4.1.1}ระบบฮาร์ดแวร์และซอฟท์แวร์ที่ใช้ในการทดสอบ}{23}
+\contentsline {subsection}{\numberline {4.1.2}ข้อมูลสำหรับการทดลอง}{23}
+\contentsline {subsection}{\numberline {4.1.3}การเรียนรู้เพื่อหาเส้นตรงที่ใช้เป็นเกณฑ์การตรวจสอบ}{24}
+\contentsline {section}{\numberline {4.2}ผลการทดสอบและการวิจารณ์}{25}
+\contentsline {subsection}{\numberline {4.2.1}ผลการตัดรูปนกวายุภักษ์}{25}
+\contentsline {subsection}{\numberline {4.2.2}ผลการแยกแยะชนิดของแสตมป์}{27}
+\contentsline {chapter}{\relax \fontsize {12}{14.5}\selectfont \abovedisplayskip 12\p@ plus3\p@ minus7\p@ \abovedisplayshortskip \z@ plus3\p@ \belowdisplayshortskip 6.5\p@ plus3.5\p@ minus3\p@ \belowdisplayskip \abovedisplayskip \let \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \leftmargin \leftmargini \parsep 5\p@ plus2.5\p@ minus\p@ \topsep 10\p@ plus4\p@ minus6\p@ \itemsep 5\p@ plus2.5\p@ minus\p@ \bf {\numberline {5.}\hskip -0.5em บทสรุป}}{29}
+\contentsfinish 

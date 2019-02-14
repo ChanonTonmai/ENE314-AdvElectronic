@@ -1,0 +1,162 @@
+% Setting up Fonts for using with XeLaTex
+%\usepackage[utf8]{inputenc}
+\usepackage{fontspec,xltxtra,xunicode}
+
+%----For Thai Language system -----------
+\usepackage{polyglossia}
+\XeTeXlinebreaklocale "th"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+%-----Setting up Thai Fonts
+\fontspec[
+ItalicFont={TH SarabunPSK Italic},
+BoldFont={TH SarabunPSK Bold},
+BoldItalicFont={TH SarabunPSK Bold Italic},
+]{TH SarabunPSK}
+
+\fontspec[
+ItalicFont={AngsanaUPC Italic},
+BoldFont={AngsanaUPC Bold},
+BoldItalicFont={AngsanaUPC Bold Italic},
+]{AngsanaUPC}
+
+\newfontfamily{\thSrB}[Scale=1.25]{TH SarabunPSK}
+\newfontfamily{\thAng}[Scale=1.33]{AngsanaUPC}           % Scale up from 12pt in normalsize to 16 pt
+\newfontfamily{\thlarge}[Scale=1.5]{AngsanaUPC}      % Scale up from 12pt in normalsize to 18 pt
+\newfontfamily{\thLarge}[Scale=1.67]{AngsanaUPC}    % Scale up from 12pt in normalsize to 20 pt
+\newfontfamily{\thLARGE}[Scale=1.83]{AngsanaUPC}   % Scale up from 12pt in normalsize to 22 pt
+
+% Setting up English fonts
+\newfontfamily{\enTimes}[Scale=1]{Times New Roman}
+\newcommand{\textEng}[1]{\enTimes #1 \normalfont}
+\newfontfamily{\engmainfont}[Scale=1]{Times New Roman}
+\def\Angsa{Angsana}
+\def\Sara{Sarabun}
+%------------------ Use Angsana or Sarabun---------------
+\def\thesisfont{Angsana}
+%\def\thesisfont{Sarabun}
+%--------------------------------------------------------------------
+%% for AngsanaUPC font
+%-------------------------------------------------------------------
+\ifx\thesisfont\Angsa
+\newfontfamily{\thaifont}[Scale=1.33]{AngsanaUPC}
+\newfontfamily{\thaimainfont}[Scale=1.33]{AngsanaUPC}
+\setmainfont[Scale=1.33]{AngsanaUPC}
+\else
+%% for TH SarabunPSK font
+%-------------------------------------------------------------------
+\newfontfamily{\thaifont}[Script=thai, Scale=1.25]{TH SarabunPSK}
+\newfontfamily{\thaimainfont}[Script=thai, Scale=1.25]{TH SarabunPSK}
+\setmainfont[Scale=1.25]{TH SarabunPSK}
+\fi
+%% Uncomment this line for Thai thesis
+\setdefaultlanguage{thai}
+
+%% Uncomment this line for English thesis
+%\setdefaultlanguage{english}
+
+\ifx\thesisfont\Angsa
+\renewcommand{\textthai}[1]{\thAng #1 \normalfont}
+\else
+\renewcommand{\textthai}[1]{\thSrB #1 \normalfont}
+\fi
+%-----------------------Renew the large and Large font size-------------------
+\renewcommand{\LARGE}{\thLARGE}
+\renewcommand{\Large}{\thLarge}
+\renewcommand{\large}{\thlarge}
+
+%----------------------------This part is for Thai character page number and appendix------------------------------
+\makeatletter
+\def\thalph#1{\expandafter\@thalph\csname c@#1\endcsname}
+\def\@thalph#1{%
+  \ifcase#1\or ก\or ข\or ค\or ฆ\or ง\or จ\or ฉ\or ช\or ซ\or ฌ\or ญ\or ฎ\or
+   ฏ\or ฐ\or ฑ\or ฒ\or ณ\or ด\or ต\or ถ\or ท\or ธ\or น\or บ\or 
+    ป\or ผ\or ฝ\or พ\or ฟ\or ภ\or ม\or ย\or ร\or ล\or ว\or ศ\or ษ\or 
+    ส\or ห\or ฬ\or อ\or ฮ\else\@ctrerr\fi}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Appendix pages %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\firstappendixtrue
+\def\appendixnames{ภาคผนวก} % assume only one appendix
+\def\appendixcover#1{%
+\newpage\pagestyle{plain}\thispagestyle{empty}
+\iffirstappendix %
+  \setcounter{chapter}{0} % Reset chapter numbering
+  \renewcommand{\thechapter}{\thalph{chapter}}
+  \def\@chapapp{\MakeUppercase{\appendixname}}%
+  \addcontentsline{toc}{chapter}{\mdseries\bf \MakeUppercase{\appendixnames}}%
+  \firstappendixfalse% 
+\fi
+   \setcounter{equation}{0} % Reset equation numbering
+   \addtocounter{chapter}{1}  % Start the 1st appendix 
+   {\centering{\vbox{}\vfill \MakeUppercase{\bf
+    ภาคผนวก \thechapter} \par \MakeUppercase{#1} \vfill\vbox{}}}\newpage}
+%   {\centering{\vbox{}\vfill \MakeUppercase{{\normalsize\bf APPENDIX
+%\thechapter}} \par \MakeUppercase{#1}} \vfill\vbox{}}}\newpage}
+
+\def\appendix#1{% 
+\appendixcover{#1}
+\addcontentsline{toc}{apdx}{\thechapter\hskip 1em #1}%
+}
+%-------------------------------end-of-appendix-page-definition------------------------------
+%TOC alignment
+%----------------------------------
+
+\usepackage{titletoc}%% section (1.1)
+\titlecontents{section}%
+   [1em]% not guesswork: 5mm+18mm from chapter settings
+   {}%
+   {\contentspush{\makebox[1.62em][l]{\thecontentslabel\hfill}}}%
+   {}%
+   {\nolinebreak\titlerule*[1000pc]{.}\contentspage}%
+
+% subsection (1.1.1)
+% Move the subsection to align with the section on 2017-07-12
+\titlecontents{subsection}%
+   [1em]% not guesswork: 5mm+18mm from chapter settings
+   {}%
+   {\contentspush{\makebox[1.62em][l]{\thecontentslabel\hfill}}}%
+   {}%
+   {\nolinebreak\titlerule*[1000pc]{.}\contentspage}%
+
+% Previous subsection and subsubsection alignment
+%\titlecontents{subsection}%
+%   [2.43em]% not guesswork: 23mm+18mm from section settings
+%   {}%
+%   {\contentspush{\makebox[2.43em][l]{\thecontentslabel\hfill}}}%
+%   {}%
+%   {\nolinebreak\titlerule*[1000pc]{.}\contentspage}%
+%% subsection (1.1.1.1)
+%\titlecontents{subsubsection}%
+%   [4.86em]% not guesswork: 23mm+18mm from section settings
+%   {}%
+%   {\contentspush{\makebox[3.24em][l]{\thecontentslabel\hfill}}}%
+%   {}%
+%   {\nolinebreak\titlerule*[1000pc]{.}\contentspage}%
+   
+%%-----------------Old Alignment   
+%\usepackage{titletoc}%% section (1.1)
+%\titlecontents{section}%
+%   [0.99em]% not guesswork: 5mm+18mm from chapter settings
+%   {}%
+%   {\contentspush{\makebox[2.25em][l]{\thecontentslabel\hfill}}}% 3*0.45em = 1.35
+%   {}%
+%   {\nolinebreak\titlerule*[1000pc]{.}\contentspage}%
+%
+%% subsection (1.1.1)
+%\titlecontents{subsection}%
+%   [0.99em]% not guesswork: 0.99em+1.35em from section settings
+%   {}%
+%   {\contentspush{\makebox[2.25em][l]{\thecontentslabel\hfill}}}% 4*0.45=1.8
+%   {}%
+%   {\nolinebreak\titlerule*[1000pc]{.}\contentspage}%
+%% subsection (1.1.1.1)
+%\titlecontents{subsubsection}%
+%   [0.99em]% not guesswork: 2.34em+1.8em from section settings
+%   {}%
+%   {\contentspush{\makebox[2.25em][l]{\thecontentslabel\hfill}}}% 5*0.45 = 2.25
+%   {}%
+%   {\nolinebreak\titlerule*[1000pc]{.}\contentspage}%
+
+%---------------------------------- end-of-TOC alignment---------------------

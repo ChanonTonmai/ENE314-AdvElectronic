@@ -1,0 +1,67 @@
+\documentclass{article}
+\input{font-setup}
+\usepackage[final]{style}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{verbatim}
+\usepackage{graphicx}       % for figures
+
+\title{การทดลอง UART}
+
+\author{
+  นักเรียน ENE314 \\
+  ภาควิชาอิเล็กโทรนิกส์และโทรคมนาคม\\
+  มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี\\
+  126 ถนนประชาอุทิศ เขตบางมด แขวงทุ่งครุ กรุงเทพมหานคร 10140 \\
+   \\
+}
+
+\begin{document}
+
+\maketitle
+
+\section{บทนำ}
+แก้ตรงนี้
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.6\textwidth]{fig/lab3.png}
+\vspace{2em}
+\caption{รูปตัวอย่าง}
+\label{fig:stamp-real}
+\end{figure}
+
+\section{การใส่หัวข้อ}
+\begin{enumerate}
+\item ดีมาก
+\item ไม่ดี 
+\item ก็ดี 
+\end{enumerate}
+
+\section{หัวข้อ}
+\subsection{หัวข้อเล็กกว่า}
+\subsubsection{หัวข้อเล็กที่สุด}
+ใส่สมการ 
+\begin{equation}
+B(x,y) = \left\{ \begin{array}{ll}
+1, \mbox{ถ้าเงื่อนของการแปลงเป็นจริง เช่น}\ I(x,y) >= I_{th}\\
+0, \mbox{กรณีอื่น ๆ}
+\end{array}\right. \label{eq:background-thresholding}
+\end{equation}
+
+สมาการพลังงาน $E=mc^2$ ใส่ในบรรทัดก็ได้เหมือนกัน
+ใส่นอกบรรทัดก็ได้เหมือนสมการที่ \ref{eq:background-thresholding} 
+
+
+
+% References
+\small
+\bibliographystyle{plain}
+\bibliography{bibliography}
+\end{document}
