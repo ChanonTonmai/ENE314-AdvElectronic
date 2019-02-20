@@ -33,17 +33,15 @@ entity top_module_i2c is
 PORT(
     clk       : IN     STD_LOGIC;                    --system clock
 	 start     : IN     STD_LOGIC; 
-	 data_rd   : OUT    STD_LOGIC_VECTOR(15 DOWNTO 0); 
+	 --data_rd   : OUT    STD_LOGIC_VECTOR(15 DOWNTO 0); 
     sda       : INOUT  STD_LOGIC;                    --serial data output of i2c bus
-    scl       : INOUT  STD_LOGIC);                   --serial clock output of i2c bus
+    scl       : OUT  STD_LOGIC);                   --serial clock output of i2c bus
 end top_module_i2c;
 
 architecture Behavioral of top_module_i2c is
 
 component i2c_master IS
-  GENERIC(
-    input_clk : INTEGER := 50_000_000; --input clock speed from user logic in Hz
-    bus_clk   : INTEGER := 400_000);   --speed the i2c bus (scl) will run at in Hz
+
   PORT(
     clk       : IN     STD_LOGIC;                    --system clock
     reset_n   : IN     STD_LOGIC;                    --active low reset
@@ -52,15 +50,17 @@ component i2c_master IS
     rw        : IN     STD_LOGIC;                    --'0' is write, '1' is read
     data_wr   : IN     STD_LOGIC_VECTOR(7 DOWNTO 0); --data to write to slave
     busy      : OUT    STD_LOGIC;                    --indicates transaction in progress
+	 bit_count : OUT    STD_LOGIC_VECTOR(4 DOWNTO 0);
     data_rd   : OUT    STD_LOGIC_VECTOR(16 DOWNTO 0); --data read from slave -- change to 16 for receive 2 package 
     ack_error : BUFFER STD_LOGIC;                    --flag if improper acknowledge from slave
     sda       : INOUT  STD_LOGIC;                    --serial data output of i2c bus
-    scl       : INOUT  STD_LOGIC);                   --serial clock output of i2c bus
+    scl       : OUT  STD_LOGIC);                   --serial clock output of i2c bus
 end component;
 
 component addr_asm is
     Port ( clk, reset : in STD_LOGIC;
            start, cmd_done : in STD_LOGIC;
+			  bit_count   : in STD_LOGIC_VECTOR(4 DOWNTO 0);
            addr_out : out STD_LOGIC_VECTOR (6 downto 0);
            data_wr : out STD_LOGIC_VECTOR (7 downto 0);
            ena, rw, send : out std_logic;
@@ -73,29 +73,29 @@ component clock_gen IS
 	         clk_out1 : out STD_LOGIC);
 end component;
 				
-signal clk_100 : STD_LOGIC;
+signal clk_50 : STD_LOGIC;
 signal ena     : STD_LOGIC;                 
 signal addr      : STD_LOGIC_VECTOR(6 DOWNTO 0); 
 signal rw        : STD_LOGIC;                    
 signal data_wr   : STD_LOGIC_VECTOR(7 DOWNTO 0);
 signal busy      : STD_LOGIC;  
 signal send      : STD_LOGIC;                 
-signal data_rd_signal : STD_LOGIC_VECTOR(15 DOWNTO 0); 
+signal data_rd_signal, data_rd : STD_LOGIC_VECTOR(15 DOWNTO 0); 
 signal data_rd_i2c : STD_LOGIC_VECTOR(16 DOWNTO 0); 
 signal ack_error : STD_LOGIC;                    
-
+signal bit_count_signal : STD_LOGIC_VECTOR(4 DOWNTO 0);
 			
 begin
 
 	data_rd <= data_rd_signal;
 	
-	clock : clock_gen port map(
-	 clk_in1 => clk,
-	 clk_out1 => clk_100
-   );	
+--	clock : clock_gen port map(
+--	 clk_in1 => clk,
+--	 clk_out1 => clk_50
+--   );	
 	
 	i2c : i2c_master port map(
-    clk       => clk_100,
+    clk       => clk,
     reset_n   => '1',
     ena       => ena,
     addr      => addr,
@@ -105,11 +105,12 @@ begin
     data_rd   => data_rd_i2c,
     ack_error => ack_error,
     sda       => sda,
-    scl       => scl 
+    scl       => scl,
+    bit_count => bit_count_signal
    );	
 	
 	address_gen : addr_asm port map(
-    clk       => clk_100,
+    clk       => clk,
 	 reset     => '0',
     start     => start,
 	 cmd_done  => busy,
@@ -119,7 +120,8 @@ begin
 	 rw        => rw,
 	 send      => send ,
     data_raw_in  => data_rd_i2c,
-    data_rd   => data_rd_signal 
+    data_rd   => data_rd_signal,
+	 bit_count => bit_count_signal
    );	
 	
 
